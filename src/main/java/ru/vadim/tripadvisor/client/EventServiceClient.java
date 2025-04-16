@@ -12,7 +12,7 @@ public class EventServiceClient {
 
     private final RestClient client;
 
-    public List<Event> getAccommodations(String airportCode) {
+    public List<Event> getEvents(String airportCode) {
         return this.client.get()
                 .uri("{airportCode}", airportCode)
                 .retrieve()

@@ -12,7 +12,7 @@ public class FlightSearchServiceClient {
 
     private final RestClient client;
 
-    public List<Flight> Flights(String departure, String arrival) {
+    public List<Flight> getFlights(String departure, String arrival) {
         return client.get()
                 .uri("/{departure}/{arrival}", departure, arrival)
                 .retrieve()

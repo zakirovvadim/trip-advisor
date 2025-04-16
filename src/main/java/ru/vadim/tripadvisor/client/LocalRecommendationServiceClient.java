@@ -9,7 +9,7 @@ public class LocalRecommendationServiceClient {
 
     private final RestClient client;
 
-    public LocalRecommendations getAccommodations(String airportCode) {
+    public LocalRecommendations getLocalRecommendations(String airportCode) {
         return this.client.get()
                 .uri("{airportCode}", airportCode)
                 .retrieve()

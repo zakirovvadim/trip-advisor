@@ -9,7 +9,7 @@ public class TransportServiceClient {
 
     private final RestClient client;
 
-    public Transportation getAccommodations(String airportCode) {
+    public Transportation getTransportation(String airportCode) {
         return this.client.get()
                 .uri("{airportCode}", airportCode)
                 .retrieve()

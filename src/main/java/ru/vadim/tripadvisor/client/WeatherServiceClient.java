@@ -9,7 +9,7 @@ public class WeatherServiceClient {
 
     private final RestClient client;
 
-    public Weather getAccommodations(String airportCode) {
+    public Weather getWeather(String airportCode) {
         return this.client.get()
                 .uri("{airportCode}", airportCode)
                 .retrieve()
