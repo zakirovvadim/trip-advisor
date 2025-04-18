@@ -1,7 +1,10 @@
 package ru.vadim.tripadvisor.dto;
 
-public record Accomodation(String name,
-                           String type,
-                           int price,
-                           double rating) {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record Accomodation(@JsonProperty("name") String name,
+                           @JsonProperty("type") String type,
+                           @JsonProperty("price") int price,
+                           @JsonProperty("rating") double rating
+) {
 }

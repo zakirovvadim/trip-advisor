@@ -19,7 +19,7 @@ public class TripPlanService {
     private final EventServiceClient eventServiceClient;
     private final WeatherServiceClient weatherServiceClient;
     private final AccomodationServiceClient accomodationServiceClient;
-    private final TransportServiceClient transportServiceClient;
+    private final TransportationServiceClient transportationServiceClient;
     private final LocalRecommendationServiceClient localRecommendations;
     private final ExecutorService executor;
 
@@ -27,7 +27,7 @@ public class TripPlanService {
         var events = this.executor.submit(() -> this.eventServiceClient.getEvents(airportCode));
         var weather = this.executor.submit(() -> this.weatherServiceClient.getWeather(airportCode));
         var accommodations = this.executor.submit(() -> this.accomodationServiceClient.getAccommodations(airportCode));
-        var transportation = this.executor.submit(() -> this.transportServiceClient.getTransportation(airportCode));
+        var transportation = this.executor.submit(() -> this.transportationServiceClient.getTransportation(airportCode));
         var recommendations = this.executor.submit(() -> this.localRecommendations.getLocalRecommendations(airportCode));
         return new TripPlan(
                 airportCode,
@@ -41,7 +41,7 @@ public class TripPlanService {
 
     private <T> T getOrElse(Future<T> future, T defaultValue) {
         try {
-            future.get();
+            return future.get();
         } catch (Exception e) {
             log.error("error", e);
         }
